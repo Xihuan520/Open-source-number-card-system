@@ -1,4 +1,33 @@
-# Open-source-number-card-system
+# 开源-数字-卡系统
+
+English | 简体中文
+
+开源号卡分销系统，专为号卡运营商输送代理商团队打造的高性能号卡分销管理系统。
+
+![License](https://img.shields.io/badge/license-Apache2.0-green)
+![Hyperf](https://img.shields.io/badge/Hyperf-3.1-blue)
+![PHP](https://img.shields.io/badge/PHP-8.2-purple)
+
+## 项目简介
+专为号卡运营商、代理商团队打造的高性能号卡分销管理系统，支持全链路号卡业务流转、多级代理管理、自动分佣结算。
+
+## 核心特性
+- 基于Hyperf协程架构，支持1000+并发请求
+- 支持多渠道聚合支付
+- 内置敏感词审核、违规内容拦截规则
+- 可视化多级分佣配置
+- 容器化一键部署，分钟级启动服务
+
+## 快速启动
+```bash
+# 克隆项目
+git clone https://github.com/你的用户名/开源-数字-卡系统.git
+
+# 安装依赖
+composer install
+
+# 启动服务
+php bin/hyperf.php start# Open-source-number-card-system
 QQ: 624015796, the author of Open Source Card System
 # OpenHaoka 开源号卡分销系统
 [![License](https://img.shields.io/badge/license-Apache2.0-green.svg)]()
