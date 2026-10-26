@@ -127,7 +127,7 @@ This project is licensed under the MIT License - see the LICENSE(LICENSE) file f
 
 • GitHub Issues: https://github.com/你的用户名/openhaoka/issues(https://github.com/你的用户名/openhaoka/issues)
 
-• Email: 你的邮箱@example.com
+• Email: 624015796@qq.com
 
 ⭐ Support
 
