@@ -1,78 +1,134 @@
-# 开源-数字-卡系统
+# OpenHaoka - Telecom Card Distribution System
 
-English | 简体中文
+[简体中文](README.md) | English
 
-开源号卡分销系统，专为号卡运营商输送代理商团队打造的高性能号卡分销管理系统。
+A high-performance, open-source telecom card (号卡) distribution management system built on the **Hyperf** framework. It leverages Swoole coroutines to handle **1000+ concurrent connections**, covering the full lifecycle of card inventory, multi-level agent management, and commission settlement.
 
-![License](https://img.shields.io/badge/license-Apache2.0-green)
-![Hyperf](https://img.shields.io/badge/Hyperf-3.1-blue)
-![PHP](https://img.shields.io/badge/PHP-8.2-purple)
+## ✨ Features
 
-## 项目简介
-专为号卡运营商、代理商团队打造的高性能号卡分销管理系统，支持全链路号卡业务流转、多级代理管理、自动分佣结算。
+- 🚀 **High Performance** - Built on Hyperf + Swoole coroutines, supporting 1000+ concurrent connections
+- 🎫 **Card Management** - Full lifecycle management of telecom cards: import, allocate, activate, and archive
+- 🤝 **Multi-level Agent System** - Multi-tier agent architecture with role-based permissions
+- 💰 **Commission Settlement** - Automatic commission calculation and settlement for distribution channels
+- 📊 **Real-time Dashboard** - Business statistics, order analytics, and agent performance overview
+- 🔐 **Secure Authentication** - JWT-based API authentication with fine-grained access control
+- 🐳 **One-click Deployment** - Docker Compose support for quick environment setup
 
-## 核心特性
-- 基于Hyperf协程架构，支持1000+并发请求
-- 支持多渠道聚合支付
-- 内置敏感词审核、违规内容拦截规则
-- 可视化多级分佣配置
-- 容器化一键部署，分钟级启动服务
+## 🛠 Tech Stack
 
-## 快速启动
+| Component   | Technology        |
+|-------------|-------------------|
+| Framework   | Hyperf 3.x        |
+| Language    | PHP 8.2+          |
+| Database    | MySQL 8.0+        |
+| Cache       | Redis 6.0+        |
+| Server      | Swoole 5.0+       |
+| Deployment  | Docker / Compose  |
+
+## 📋 Requirements
+
+- PHP 8.2+
+- Swoole 5.0+
+- MySQL 8.0+
+- Redis 6.0+
+- Docker & Docker Compose *(optional, for containerized deployment)*
+
+## 🚀 Quick Start
+
+### Option A: Docker Deployment (Recommended)
+
 ```bash
-# 克隆项目
-git clone https://github.com/你的用户名/开源-数字-卡系统.git
+# 1. Clone the repository
+git clone https://github.com/你的用户名/openhaoka.git
+cd openhaoka
 
-# 安装依赖
+# 2. Copy environment configuration
+cp .env.example .env
+
+# 3. Start all services
+docker compose up -d
+
+# 4. Install PHP dependencies
+docker exec -it openhaoka-app composer install
+
+# 5. Run database migrations
+docker exec -it openhaoka-app php bin/hyperf.php migrate
+
+# 6. Access the application
+# Frontend:   http://localhost:8080
+# Admin Panel: http://localhost:8080/admin
+Option B: Local Development
+# 1. Install dependencies
 composer install
 
-# 启动服务
-php bin/hyperf.php start# Open-source-number-card-system
-QQ: 624015796, the author of Open Source Card System
-# OpenHaoka 开源号卡分销系统
-[![License](https://img.shields.io/badge/license-Apache2.0-green.svg)]()
-[![Hyperf Version](https://img.shields.io/badge/Hyperf-3.1-blue.svg)]()
-[![PHP Version](https://img.shields.io/badge/PHP-8.2-purple.svg)]()
+# 2. Configure environment
+cp .env.example .env
 
-## 项目简介
-专为号卡运营商、代理商团队打造的高并发分销管理系统，支持号卡上架、多级分佣、订单实时通知、支付全链路闭环。
+# 3. Start Hyperf server
+php bin/hyperf.php start
 
-## 核心特性
-- 协程架构单实例支持1000+并发订单处理
-- 支持聚合支付自动对账
-- 内置敏感词审核防违规
-- 可视化分销数据大屏
-- 容器化一键部署5分钟启动
+# 4. Run database migrations
+php bin/hyperf.php migrate
+😊 Default Account
+Security Notice: Please change the default password immediately after your first login!
+Role Username Default Password
+Admin admin admin123
+📁Project Structure
+openhaoka/
+├── app/
+│   ├── Controller/     # HTTP controllers
+│   ├── Model/          # ORM models
+│   ├── Service/        # Business logic layer
+│   └── Middleware/     # Middleware
+├── config/             # Configuration files
+├── database/           # Migrations & seeders
+├── .env.example        # Environment template
+├── docker-compose.yml  # Docker orchestration
+└── composer.json       # PHP dependencies
+📚 API Documentation
 
-## 快速启动
-```bash
-git clone 项目地址
-docker compose up -d
-访问后台：http://localhost:8080/admin
-默认账号：admin@openhaoka.com 密码：123456
-贡献指南
-欢迎提交Issue与PR，所有合并代码需通过单元测试校验。
-### 3. 一键部署docker-compose.yml
-```yaml
-version: '3.8'
-services:
-  php:
-    image: hyperf/hyperf:8.2-alpine-v3.18-swoole
-    volumes:
-      - ./:/opt/www
-    ports:
-      - "9501:9501"
-    working_dir: /opt/www
-    command: php bin/hyperf.php start
-  mysql:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: openhaoka123
-  redis:
-    image: redis:7.2-alpine
-4..env.example示例
-APP_NAME=OpenHaoka
-DB_HOST=mysql
-DB_PORT=3306
-REDIS_HOST=redis
-以上所有基础文件全部可直接使用，仅需补充对应业务模块的逻辑代码即可投入开发。
+After starting the application, interactive API docs are available at:
+http://localhost:8080/swagger
+🗺 Roadmap
+
+☑ Agent management
+
+☑ Card inventory management
+
+☑ Commission settlement
+
+☐ Carrier API integration templates
+
+☐ Commission detail reports
+
+☐ Mobile payment integration
+
+🤝 Contributing
+
+Contributions are welcome! Feel free to submit issues and pull requests.
+
+1. Fork the repository
+
+2. Create your feature branch: git checkout -b feature/amazing-feature
+
+3. Commit your changes: git commit -m 'Add some amazing feature'
+
+4. Push to the branch: git push origin feature/amazing-feature
+
+5. Open a Pull Request
+
+Please read CONTRIBUTING.md(CONTRIBUTING.md) for details.
+
+📄 License
+
+This project is licensed under the MIT License - see the LICENSE(LICENSE) file for details.
+
+📬 Contact
+
+• GitHub Issues: https://github.com/你的用户名/openhaoka/issues(https://github.com/你的用户名/openhaoka/issues)
+
+• Email: 你的邮箱@example.com
+
+⭐ Support
+
+If this project helps you, please gi
